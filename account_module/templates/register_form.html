@@ -1,0 +1,21 @@
+{% extends 'shared/_layout.html' %}
+
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>فرم ثبت‌ نام</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" style="align-content: center ; margin: 40px">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100" style="margin-top: 20px">ثبت‌نام</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

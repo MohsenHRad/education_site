@@ -1,0 +1,262 @@
+{% extends 'shared/_layout.html' %}
+{% block header_references %}
+    <style>
+        .course-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .course-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .course-meta {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .course-price, .course-duration {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .course-description h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .course-description p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+
+        .course-action {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-enroll, .btn-login {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-enroll:hover, .btn-login:hover {
+            background-color: #0056b3;
+        }
+
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .comment-form p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .comments-section {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .comments-section h3 {
+            font-size: 20px;
+            font-family: "B Yekan";
+            margin-bottom: 15px;
+
+        }
+
+        .comments-section h4 {
+            font-size: 15px;
+            font-family: "Vazir";
+            margin-bottom: 15px;
+        }
+
+        .comment {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .user-email {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .comment-text {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .parent-comment {
+            font-size: 14px;
+            color: #666;
+        }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="course-detail-container">
+        <div class="course-header">
+            <h1>{{ product.name }}</h1>
+            <p class="course-meta">تاریخ ایجاد: {{ product.created_date|date:"Y-m-d" }}</p>
+        </div>
+
+        <div class="course-info">
+
+            {% if not product.is_free %}
+                <div class="course-price">
+                    <span>قیمت:</span> <strong>{{ product.price }} تومان</strong>
+                </div>
+            {% else %}
+                <div class="course-price">
+                    <span>قیمت:</span> <strong>رایگان</strong>
+                </div>
+            {% endif %}
+
+            <div class="course-price">
+                <span>مدرس:</span> <strong>{{ product.owner }}</strong>
+            </div>
+            <div class="course-duration">
+                <span>مدت زمان دوره:</span> <strong>{{ product.time }}</strong>
+            </div>
+        </div>
+
+        <div class="course-description">
+            <h2>توضیحات دوره</h2>
+            <p>{{ product.short_description }}</p>
+        </div>
+
+        <form method="POST" action="{% url 'add_product_to_favorite' product_id=product.id %}">
+            {% csrf_token %}
+            <button type="submit">اضافه به علاقه‌مندی‌ها</button>
+        </form>
+
+
+        <div class="course-action">
+            {% if user.is_authenticated %}
+                <a href="" class="btn-enroll">ثبت ‌نام در دوره</a>
+            {% else %}
+                <p>لطفاً برای ثبت‌ نام وارد حساب کاربری خود شوید.</p>
+                <a href="{% url 'login_view' %}" class="btn-login">ورود به حساب کاربری</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="comments-section">
+        <h3>نظرات کاربران</h3>
+        {% if not comments %}
+            <p>هنوز نظری وجود ندارد</p>
+        {% else %}
+            <h4>تعداد : {{ comments_count }}</h4>
+        {% endif %}
+
+        {% for comment in comments %}
+            <div class="comment">
+                <p class="user-email">{{ comment.user.username }}</p>
+                <p class="comment-text">{{ comment.text }}</p>
+                <p class="comment-date">{{ comment.created_date }}</p>
+                {% if comment.parent %}
+                    <p class="parent-comment">پاسخ به :{{ comment.parent }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        {#        <div class="comment">#}
+        {#            <p class="user-email">test@test.com</p>#}
+        {#            <p class="comment-text">منم موافقم</p>#}
+        {#            <p class="comment-date">2024-12-18 09:11</p>#}
+        {#            <p class="parent-comment">والد: (اگر موجود باشد)</p>#}
+        {#        </div>#}
+        {#    </div>#}
+
+
+        <!-- فرم ارسال نظر -->
+        <form method="POST" class="comment-form" action="{% url 'add_product_comment' %}">
+            {% csrf_token %}
+            {{ comment_form.as_p }}  <!-- اینجا نمایش فرم به صورت پاراگراف (هر فیلد داخل یک <p> قرار می‌گیرد) -->
+            <button type="submit" class="btn-submit">ارسال نظر</button>
+        </form>
+
+
+        {#    {% include 'components/product_comment.html' with comments=comments %}#}
+
+
+{% endblock %}

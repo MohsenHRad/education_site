@@ -1,0 +1,41 @@
+{% extends 'shared/_layout.html' %}
+
+
+{% block header_references %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="mt-5">تغییر رمز عبور</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ change_password_form.user_new_password.label }}
+                {{ change_password_form.user_new_password }}
+                <p>{{ change_password_form.user_new_password.errors }}</p>
+
+                {#                {% for errors in change_password_form.user_new_password.error %}#}
+                {#                    {{ errors }}#}
+                {#                {% endfor %}#}
+            </div>
+
+            <div class="form-group">
+                {{ change_password_form.user_new_password_confirm.label }}
+                {{ change_password_form.user_new_password_confirm }}
+                <p>{{ change_password_form.user_new_password_confirm.errors }}</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">تغییر رمز عبور</button>
+        </form>
+
+
+    </div>
+
+{% endblock %}
+
+{% block footer_references %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

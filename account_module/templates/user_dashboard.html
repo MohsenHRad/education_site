@@ -1,0 +1,41 @@
+{% extends 'shared/_layout.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header text-center bg-primary text-white">
+                <h2 class="mb-0">خوش آمدید، {{ user.username }}</h2>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="{% url 'user_favorite_products' %}" class="text-decoration-none text-dark">
+                            <i class="bi bi-grid"></i> محصولات مورد علاقه
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'edit_profile_view' %}" class="text-decoration-none text-dark">
+                            <i class="bi bi-pencil-square"></i> ویرایش اطلاعات
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'change_password_view' %}" class="text-decoration-none text-dark">
+                            <i class="bi bi-key"></i> تغیر کلمه عبور
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'logout_view' %}" class="text-decoration-none text-dark">
+                            <i class="bi bi-lock"> </i>خروج
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'home_page' %}" class="text-decoration-none text-dark">
+                            <i class="bi bi-house-door "> </i>صفحه اصلی
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

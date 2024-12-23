@@ -1,0 +1,81 @@
+{% extends 'shared/_layout.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="fa">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>فراموشی رمز عبور</title>
+        <!-- لینک به استایل های Bootstrap -->
+        <style>
+            .card {
+                border-radius: 10px;
+            }
+
+            .card-header {
+                background-color: #f8f9fa;
+            }
+
+            .card-body {
+                background-color: #ffffff;
+            }
+
+            .form-label {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">
+                        <h2>فراموشی رمز عبور</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center mb-4">لطفا ایمیل خود را وارد کنید تا لینک بازنشانی رمز عبور برایتان ارسال
+                            شود.</p>
+                        <form method="POST">
+                            <div class="mb-3">
+                                {% csrf_token %}
+                                {{ forget_password_form.user_email.label }}
+                                {{ forget_password_form.user_email }}
+                                <br>
+                                {% for error in forget_password_form.user_email.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                                {#                                <label for="user_email" class="form-label">ایمیل</label>#}
+                                {#                                #}
+                                {#                                <input type="email" class="form-control" id="user_email" placeholder="ایمیل شما"#}
+                                {#                                       required>#}
+                                {#                                <div class="text-danger" id="email-error"></div>#}
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">ارسال لینک بازنشانی</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p><a href="{% url 'login_view' %}">بازگشت به صفحه ورود</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+{% endblock %}

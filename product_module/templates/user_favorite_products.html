@@ -1,0 +1,67 @@
+{% extends 'shared/_layout.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>لیست دوره‌ها</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">لیست دوره‌ها و آموزش‌ها</h1>
+        <div class="row">
+            {% for category in categories %}
+                <ul>
+                    <li><a href="?category={{ category.url_title }}">{{ category.name }}</a></li>
+                </ul>
+            {% endfor %}
+            <ul>
+                <li><a href="{% url 'home_page' %}">صفحه اصلی</a></li>
+            </ul>
+            {% if user.is_superuser %}
+                <ul>
+                    <li><a href="{% url 'add_new_post' %}">اضافه کردن</a></li>
+                </ul>
+            {% endif %}
+            <ul>
+                <li>
+                    <a href="{% url 'product_list' %}">همه ی محصولات</a>
+                </li>
+            </ul>
+
+            {% for product in fav_products %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.product }}</h5>
+                            <p class="card-text text-muted small">{{ product.product.created_date|date:"Y/m/d H:i" }}</p>
+                            <p class="card-text">{{ product.product.short_description|truncatewords:20 }}</p>
+                            {% if product.is_free %}
+                                <p class="card-text">رایگان</p>
+
+                            {% else %}
+                                <p class="card-text">{{ product.product.price }} تومان</p>
+                            {% endif %}
+                            {% if product.slug %}
+                                <a href="{% url 'product_detail' product.slug %}" class="btn btn-primary btn-sm"
+                                   target="_blank">مشاهده
+                                    دوره</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">هیچ پستی برای نمایش وجود ندارد!</p>
+            {% endfor %}
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'shared/_layout.html' %}
+
+{% block header_references %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    {#    <!DOCTYPE html>#}
+    {#    <html lang="fa">#}
+    {#    <head>#}
+    {#        <meta charset="UTF-8">#}
+    {#        <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+    {#        <title>اضافه کردن پست آموزشی</title>#}
+    {##}
+    {#    </head>#}
+    <body>
+    <div class="container">
+        <h1>افزودن پست آموزشی</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {#            {% for fields in form %}#}
+            {#            	#}
+            {#            {% endfor %}#}
+            {{ form.as_p }}
+
+            {#            <label for="title">عنوان پست:</label>#}
+            {#            <input type="text" id="title" name="title" placeholder="عنوان را وارد کنید" required>#}
+            {##}
+            {#            <label for="description">توضیحات کوتاه:</label>#}
+            {#            <textarea id="description" name="description" rows="3"#}
+            {#                      placeholder="خلاصه محتوای پست را وارد کنید"></textarea>#}
+            {##}
+            {#            <label for="content">محتوای پست:</label>#}
+            {#            <textarea id="content" name="content" rows="8" placeholder="محتوای کامل پست را وارد کنید"#}
+            {#                      required></textarea>#}
+            {##}
+            {#            <label for="category">دسته بندی:</label>#}
+            {#            <select id="category" name="category">#}
+            {#                <option value="programming">برنامه نویسی</option>#}
+            {#                <option value="design">طراحی</option>#}
+            {#                <option value="marketing">مارکتینگ</option>#}
+            {#                <option value="other">سایر</option>#}
+            {#            </select>#}
+            {##}
+            {#            <label for="image">تصویر پست:</label>#}
+            {#            <input type="file" id="image" name="image" accept="image/*">#}
+
+            <button type="submit">ارسال پست</button>
+        </form>
+    </div>
+    </body>
+    </html>
+{% endblock %}
