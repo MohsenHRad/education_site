@@ -4,32 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fd99af1-1b6f-4097-adb6-ea812eaa0e20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Education_site.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/change_pass_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/forget_pass_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/login_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/register_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/user_dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/templates/user_edit_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account_module/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home_module/templates/index_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home_module/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/templates/add_post_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/templates/product_detail_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/templates/product_list_view.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/templates/user_favorite_products.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_module/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/product_comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shared/_layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shared/footer_references.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shared/header_references.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shared/site_header_component.html" afterDir="false" />
+    <list default="true" id="6fd99af1-1b6f-4097-adb6-ea812eaa0e20" name="Changes" comment="add to favorite">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +26,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MohsenHRad/education_site.git",
+    "accountId": "6fbb5843-2c7c-4b96-813e-036f5757fb47"
+  }
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -150,11 +132,44 @@
       <workItem from="1734333894511" duration="10412000" />
       <workItem from="1734501705446" duration="11955000" />
       <workItem from="1734588151882" duration="12264000" />
-      <workItem from="1734936377473" duration="5575000" />
+      <workItem from="1734936377473" duration="6381000" />
+      <workItem from="1735027019418" duration="311000" />
     </task>
+    <task id="LOCAL-00001" summary="add to favorite">
+      <option name="closed" value="true" />
+      <created>1734943859388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734943859388</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add to favorite">
+      <option name="closed" value="true" />
+      <created>1734943916861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734943916861</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add to favorite" />
+    <option name="LAST_COMMIT_MESSAGE" value="add to favorite" />
   </component>
 </project>
